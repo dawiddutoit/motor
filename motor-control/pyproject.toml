@@ -1,0 +1,22 @@
+[project]
+name = "motor-control"
+version = "0.1.0"
+description = "Control NEMA stepper motors via Waveshare Stepper Motor HAT Rev2 on Raspberry Pi 4"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+# Note: lgpio is provided by the system package python3-lgpio
+# Install with: sudo apt install python3-lgpio
+
+[project.scripts]
+motor-test = "motor_control.test:main"
+motor-run = "motor_control.cli:main"
+motor-interactive = "motor_control.interactive:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/motor_control"]
